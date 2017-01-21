@@ -32,15 +32,45 @@ var $p = $('p'); //jQuery selector for the <p> HTML element ($ is not necessary,
       $('div').fadeOut('slow');//fade the div out slowly
       $('li').fadeIn('slow');//fade the li in slowly
     });
-    
+
     $('div').click(function() { // whenever the user clicks on a div
       $(this).fadeOut('slow'); // only that div will fade out slowly
     });
 
     $('section').click(function(){ //when the user clicks on a section
-       $('div').slideToggle('slow'); //the div will slowly slide open and can be clicked to slide closed
-    }); 
-    
+        $('div').slideToggle('slow'); //the div will slowly slide open and can be clicked to slide closed
+      });
+
+    $('div').hover(function(){ //when the user hovers over the div, perform an action
+      //action
+    });
+
+    $('div').dblclick(function(){ //when the user double clicks on the div, perform an action
+      //action
+    });
+
+    $('div').focus(function(){ //when the div is in focus, perform some action
+      //action
+    });
+
+    $('div').keydown(function(key){ //when the div has focus and a key is pressed
+      switch(parseInt(key.which, 10)){
+        case 37://when the left arrow key is pressed
+          $(this).animate({left:'-=10px'},'fast'); //move div to the left
+          break;
+        case 38: //when the up arrow key is pressed
+          $(this).animate({top:'-=10px'},'fast'); //move div up
+          break;
+        case 39: //when the right arrow key is pressed
+          $(this).animate({left:'+=10px'},'fast'); //move div to the right
+          break;
+        case 40: //when the down arrow key is pressed
+          $(this).animate({top:'+=10px'},'fast'); //move div down
+          break;
+      });
+    });
+
+
     //Creating HTML elements
     $p = $("<p>I am a new paragraph!</p>");
     $(".element").append("<p>Stuff</p>"); //inserts element as last child of target class
@@ -49,8 +79,23 @@ var $p = $('p'); //jQuery selector for the <p> HTML element ($ is not necessary,
     $("<p>Stuff</p>").prependTo(".element"); //inserts element as first child of target class (reverse order of .prepend())
     $('.element').after('<p>Stuff</p>'); //adds a paragraph element after the element class
     $('.element').before('<p>Stuff</p>'); //adds a paragraph element before the element class
-    
-    //https://www.codecademy.com/courses/web-beginner-en-v6phg/0/5?curriculum_id=50a3fad8c7a770b5fd0007a1
-    
-    
-  });
+
+    //Removing HTML elements
+    $(".element").empty(); //deletes element's content and ALL ITS DESCENDANTS
+    $(".element").remove(); //deletes element's content and element itself
+
+    //Modifying HTML elments
+    $("selector").addClass('className'); //adds a class name to the given element
+    $("selector").removeClass('className'); //removes a class name from the given elements
+    $("selector").toggleClass("className"); //toggles the effects of a class name from on/off to an element
+    $(".element").css("css-command","value"); //applies a CSS statement to the element
+    $(".element").html("Html Value"); //sets content inside the first element of this element type it finds
+    $(".formElement").val(); //gets the value of first instance of a form element
+
+    $("selector").on('event', 'selector', function() { //upon an event on a given selector perform the following function
+      //action
+    });
+
+    //Events
+
+  )};

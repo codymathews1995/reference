@@ -91,11 +91,21 @@ var $p = $('p'); //jQuery selector for the <p> HTML element ($ is not necessary,
     $(".element").css("css-command","value"); //applies a CSS statement to the element
     $(".element").html("Html Value"); //sets content inside the first element of this element type it finds
     $(".formElement").val(); //gets the value of first instance of a form element
-
     $("selector").on('event', 'selector', function() { //upon an event on a given selector perform the following function
       //action
     });
 
-    //Events
+    //Effects
+    $(".element").click(function(){ // when the .element is clicked upon
+      $(this).effect('explode');  //perform the explode effect
+      $(this).effect('bounce', {times:2}, 200); //perform the bounce effect 2 times for 200 milliseconds
+      $(this).effect('slide'); //perform the slide effect
+    });
+
+    $('.element').draggable(); //set an element to be dragged around the screen
+    $('.element').resizable(); //set an element to be resized
+    $('.element').selectable(); //set an element to be selected
+    $('.element').sortable(); //set an element to be sorted
+    $('.element').according(); //sets an element to be an accordion menu
 
   )};
